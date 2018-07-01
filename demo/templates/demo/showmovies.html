@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies in {{city}}</title>
+</head>
+<body>
+<h1>Movies in city: {{city}}</h1>
+<ul>
+    {% for movie in movies %}
+    <li>{{movie}}</li>
+    {% endfor %}
+</ul>
+<a href="/demo/selectcity">Change City</a>
+
+</body>
+</html>

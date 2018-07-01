@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies in {{city_name}}</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <td>Select City:</td>
+            <td>
+                <select name="city">
+                    {% for city in cities %}
+                    <option value={{city}}>
+                        {{city}}
+                    </option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td><input type="submit" value="View Movies"/></td>
+        </tr>
+    </table>
+</form>
+<br/>
+<br/>
+<br/>
+<br/>
+<h2 align="center">The following movies are playing in <u>{{city_name}}</u> right now!</h2>
+{% for movie in movie_city %}
+<h3 align="center"><u>{{movie}}</u></h3>
+{% endfor %}
+</body>
+</html>

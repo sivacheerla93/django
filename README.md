@@ -1,2 +1,1 @@
-# django
-Django framework workspace
+This is my Django workspace!
