@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from .forms import AddDeptForm, AddEmpForm
+from django.http import JsonResponse
 import mysql.connector
 
 
@@ -101,3 +102,49 @@ def add_emp(request):
     else:
         form = AddEmpForm()  # empty form
         return render(request, 'demo/hr/add_emp.html', {'form': form})
+
+
+def list_all_emp(request):
+    employees = []
+    try:
+        con = mysql.connector.connect(host="localhost", user="root", password="9866850403", database="python")
+        cur = con.cursor()
+        # take input from user
+        cur.execute("select * from emp")
+        employees = cur.fetchall()
+    except Exception as ex:
+        print("Error : ", ex)
+    finally:
+        cur.close()
+        con.close()
+
+    return render(request, 'demo/hr/list_all_emp.html',
+                  {"employees": employees})
+
+
+# For Ajax
+def search(request):
+    return render(request, 'demo/hr/search_emp.html')
+
+
+def get_employees(request):
+    name = request.GET.get('name', None)
+    name = name + "%"
+    print(name)
+    employees = []
+
+    try:
+        con = mysql.connector.connect(host="localhost", user="root", password="9866850403", database="python")
+        cur = con.cursor()
+        # take input from user
+        cur.execute("select * from emp where name like '{}'".format(name))
+        for row in cur.fetchall():
+            emp = {"id": row[0], "name": row[1], "salary": row[2], "deptid": row[3]}
+            employees.append(emp)
+    except Exception as ex:
+        print("Error : ", ex)
+    finally:
+        cur.close()
+        con.close()
+
+    return JsonResponse(employees, safe=False)

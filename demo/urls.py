@@ -4,7 +4,8 @@ from demo.cookie_view import show, selectcolor, selectcity, showmovies
 from demo.session_view import languages, clear
 from demo.hr_views import add_dept
 from demo.db_movies_view import city_movies
-from demo.hr_views import add_dept, list_dept, list_emp, add_emp
+from demo.hr_views import add_dept, list_dept, list_emp, add_emp, list_all_emp, search, get_employees
+from demo.ajax_views import ajax, today
 from django.urls import path, re_path
 
 urlpatterns = [
@@ -25,4 +26,9 @@ urlpatterns = [
     path('list_dept/', list_dept),
     re_path(r'list_emp/(\d+)', list_emp),
     path('add_emp/', add_emp),
+    path('list_all_emp/', list_all_emp),
+    path('ajax/', ajax),
+    path('today/', today),
+    path('search/', search),
+    path('get_employees/', get_employees)
 ]
