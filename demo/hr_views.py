@@ -148,3 +148,23 @@ def get_employees(request):
         con.close()
 
     return JsonResponse(employees, safe=False)
+
+
+def get_name(request, id):
+    print(id)
+    result = ""
+    try:
+        con = mysql.connector.connect(host="localhost", user="root", password="9866850403", database="python")
+        cur = con.cursor()
+        cur.execute("select name, salary from emp where id = {0}".format(id))
+        emp = cur.fetchone()
+        if emp == None:
+            result = "Not Found"
+        else:
+            result = str(emp[0]) + " - " + str(emp[1])
+    except Exception as ex:
+        print("Error : ", ex)
+        result = "Error: " + str(ex)
+    finally:
+        con.close()
+    return HttpResponse(result)

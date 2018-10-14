@@ -8,7 +8,16 @@
     <script src='{% static "demo/jquery-3.3.1.js" %}'></script>
     <script>
         function searchEmployees(){
+            if($("#name").val() == ""){
+                $("#data").html("Field can't be empty!");
+                return;
+            }
             $.getJSON("/demo/get_employees/", {'name': $("#name").val()}, function(result){
+              if(result.length == 0){
+                $("#data").html("No employee found!");
+                return;
+              }
+              $("#data").html("");
               output = "<ul>";
               $.each(result,
                   function(idx,emp) {
@@ -16,17 +25,26 @@
                   }
               );
               $("#data").html( output + "</ul>");
-            }
+             }
             );
         }
+
+         function getName() {
+             $.get("/demo/get_emp_id/" + $("#empid").val(),{},
+                       function(name) {
+                           $("#empname").text(name);
+                       }
+             );
+         }
     </script>
 </head>
 <body>
 <h1>Ajax Search Employees</h1>
-Name <input type="text" id="name"/>
-<button onclick="searchEmployees()">Search Employees</button>
-<h2 id="now"></h2>
+Name <input type="text" id="name" onkeyup="searchEmployees()" />
 <div id="data"></div>
 <hr/>
+<h1>Employee Details By ID</h1>
+Id <input type="number" id="empid" onkeyup="getName()"/>
+<span id="empname"></span>
 </body>
 </html>
