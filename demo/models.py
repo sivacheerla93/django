@@ -26,3 +26,22 @@ class Movies:
     @staticmethod
     def get_movies(city):
         return Movies.movies[city]
+
+
+# For ORM using MySQL
+class DBCourse(models.Model):
+    title = models.CharField(max_length=20)
+    duration = models.IntegerField()
+    fee = models.IntegerField()
+
+    def __str__(self):
+        return self.title
+
+
+class DBStudent(models.Model):
+    fullname = models.CharField(max_length=20)
+    email = models.CharField(max_length=50)
+    course = models.ForeignKey('DBCourse', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.fullname
