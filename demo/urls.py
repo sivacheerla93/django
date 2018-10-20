@@ -6,6 +6,7 @@ from demo.db_movies_view import city_movies
 from demo.hr_views import add_dept, list_dept, list_emp, add_emp, list_all_emp, search, get_employees, get_name
 from demo.ajax_views import ajax, today
 from django.urls import path, re_path
+import demo.orm_views as orm_views
 
 urlpatterns = [
     path('hello/', hello),
@@ -30,5 +31,11 @@ urlpatterns = [
     path('today/', today),
     path('search/', search),
     path('get_employees/', get_employees),
-    re_path(r'get_emp_id/(\d+)', get_name)
+    re_path(r'get_emp_id/(\d+)', get_name),
+    re_path(r'orm/empbydept/(\d+)', orm_views.emp_by_dept),
+    path('orm/list_dept/', orm_views.list_dept),
+    path('orm/list_emp/', orm_views.list_emp),
+    path('orm/add_dept/', orm_views.add_dept),
+    path('orm/home/', orm_views.home),
+    path('orm/add_emp/', orm_views.add_emp),
 ]
