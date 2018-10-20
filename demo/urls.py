@@ -7,6 +7,8 @@ from demo.hr_views import add_dept, list_dept, list_emp, add_emp, list_all_emp, 
 from demo.ajax_views import ajax, today
 from django.urls import path, re_path
 import demo.orm_views as orm_views
+import demo.rest_views as rest_views
+import demo.class_views as class_views
 
 urlpatterns = [
     path('hello/', hello),
@@ -38,4 +40,9 @@ urlpatterns = [
     path('orm/add_dept/', orm_views.add_dept),
     path('orm/home/', orm_views.home),
     path('orm/add_emp/', orm_views.add_emp),
+    path('api/client/', rest_views.client),
+    path('api/departments/', rest_views.list_dept),
+    path('api/departments/<int:id>', rest_views.department_details),
+    path('now/', class_views.TodayView.as_view()),
+    path('deptlist/', class_views.DepartmentList.as_view()),
 ]
