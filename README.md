@@ -12,9 +12,13 @@ Some well-known sites that use Django include the Public Broadcasting Service, I
 * IDE: PyCharm 2018.1 (Community Edition)
 
 ### Download Django using PIP:
-``` pip install django ```
+```
+pip install django
+```
 If you want specific version, then follw this command
-``` pip install django==2.0 ```
+```
+ pip install django==2.0
+```
 
 ### Resources:
 [Offical Django Documentation](https://docs.djangoproject.com/en/2.0/)
