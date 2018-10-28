@@ -8,6 +8,7 @@ Some well-known sites that use Django include the Public Broadcasting Service, I
 ### Workspace Configuartion:
 * OS: Windows 8.1 64-bit
 * Python version: 3.4.4
+* Database: MySQL 5.7
 * Django version: 2.0.9
 * IDE: PyCharm 2018.1 (Community Edition)
 
@@ -30,14 +31,43 @@ Then you can create an application within your project using following command, 
 python manage.py startapp demo
 ```
 
-### Starting Server:
-To start the server, location should be Project folder only
+### Start Server:
+To start the server, location should be Project folder only and then follow this command
 ```
 python manage.py runserver
 ```
 
 ```
 And then go to https://localhost:8000
+```
+
+### To migrate changes to database
+```
+python manage.py migrate
+```
+
+### To launch interactive console or shell
+```
+python manage.py shell
+```
+
+### ORM(Object Relational Model):
+Follow these commands after creating models to migrate into database
+
+```
+python manage.py check
+```
+
+```
+python manage.py makemigrations
+```
+
+```
+python manage.py migrate
+```
+(or)
+```
+python manage.py sqlmigrate demo 0001
 ```
 
 ### Resources:
