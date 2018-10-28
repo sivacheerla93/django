@@ -42,7 +42,24 @@ Views created in your application, make sure thier paths in urls.py under webdem
 Ex:
 ```
 from demo.views import hello
+
 urlpatterns = [ path('hello/', hello ]
+```
+
+Note: URL's can be in urls.py under your app also i.e., demo. For that we need to set path for our app under urls.py under webdemo sub folder
+```
+from django.urls import path, include
+
+urlpatterns = [ path('demo/', include('demo.urls')) ]
+```
+
+And then set your view path in urls.py under your app, i.e., demo
+Ex:
+```
+from django.urls import path
+from demo.views import hello
+
+urlpatterns = [ path('hello/', hello) ]
 ```
 
 ### Start Server:
@@ -52,7 +69,7 @@ python manage.py runserver
 ```
 
 ```
-And then go to https://localhost:8000
+And then go to https://localhost:8000/demo/hello
 ```
 
 ### To migrate changes to database:
