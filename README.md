@@ -31,6 +31,20 @@ Then you can create an application within your project using following command, 
 python manage.py startapp demo
 ```
 
+### Make app presence in Installed apps:
+Go to settings.py under webdemo sub folder and make presence of your app in INSTALLED_APPS,
+```
+'demo'
+```
+
+### URL Patterns:
+Views created in your application, make sure thier paths in urls.py under webdemo sub folder
+Ex:
+```
+from demo.views import hello
+urlpatterns = [ path('hello/', hello ]
+```
+
 ### Start Server:
 To start the server, location should be Project folder only and then follow this command
 ```
