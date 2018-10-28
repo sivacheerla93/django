@@ -39,6 +39,7 @@ Go to settings.py under webdemo sub folder and make presence of your app in INST
 
 ### URL Patterns:
 Views created in your application, make sure thier paths in urls.py under webdemo sub folder
+
 Ex:
 ```
 from demo.views import hello
@@ -46,7 +47,7 @@ from demo.views import hello
 urlpatterns = [ path('hello/', hello ]
 ```
 
-Note: URL's can be in urls.py under your app also i.e., demo. For that we need to set path for our app under urls.py under webdemo sub folder
+Note: URL's can be in urls.py under your app also i.e., demo. For that we need to set path for our app in urls.py under webdemo sub folder
 ```
 from django.urls import path, include
 
@@ -54,6 +55,7 @@ urlpatterns = [ path('demo/', include('demo.urls')) ]
 ```
 
 And then set your view path in urls.py under your app, i.e., demo
+
 Ex:
 ```
 from django.urls import path
