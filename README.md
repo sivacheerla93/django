@@ -20,6 +20,26 @@ If you want specific version, then follw this command
  pip install django==2.0
 ```
 
+### Start Project:
+Before creating a project first locate your workspace folder using cmd, and then follow this command
+```
+django-admin startproject webdemo
+```
+Then you can create an application within your project using following command, Before creating an app change directory to your created project
+```
+python manage.py startapp demo
+```
+
+### Starting Server:
+To start the server, location should be Project folder only
+```
+python manage.py runserver
+```
+
+```
+And then go to https://localhost:8000
+```
+
 ### Resources:
 [Offical Django Documentation](https://docs.djangoproject.com/en/2.0/)
 
