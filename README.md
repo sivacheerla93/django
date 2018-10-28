@@ -24,7 +24,7 @@ If you want specific version, then follw this command
 ### Start Project:
 Before creating a project first locate your workspace folder using cmd, and then follow this command
 ```
-django-admin startproject webdemo
+django-admin startproject python_web
 ```
 Then you can create an application within your project using following command, Before creating an app change directory to your created project
 ```
@@ -32,13 +32,13 @@ python manage.py startapp demo
 ```
 
 ### Make app presence in Installed apps:
-Go to settings.py under webdemo sub folder and make presence of your app in INSTALLED_APPS,
+Go to settings.py under python_web sub folder and make presence of your app in INSTALLED_APPS,
 ```
 'demo'
 ```
 
 ### URL Patterns:
-Views created in your application, make sure thier paths in urls.py under webdemo sub folder
+Views created in your application, make sure thier paths in urls.py under python_web sub folder
 
 Ex:
 ```
@@ -47,7 +47,7 @@ from demo.views import hello
 urlpatterns = [ path('hello/', hello ]
 ```
 
-Note: URL's can be in urls.py under your app also i.e., demo. For that we need to set path for our app in urls.py under webdemo sub folder
+Note: URL's can be in urls.py under your app also i.e., demo. For that we need to set path for our app in urls.py under python_web sub folder
 ```
 from django.urls import path, include
 
