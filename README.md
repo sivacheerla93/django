@@ -41,12 +41,12 @@ python manage.py runserver
 And then go to https://localhost:8000
 ```
 
-### To migrate changes to database
+### To migrate changes to database:
 ```
 python manage.py migrate
 ```
 
-### To launch interactive console or shell
+### To launch interactive console or shell:
 ```
 python manage.py shell
 ```
@@ -68,6 +68,17 @@ python manage.py migrate
 (or)
 ```
 python manage.py sqlmigrate demo 0001
+```
+
+### Django Rest Framework:
+To install rest framework using pip, follow this command from cmd
+```
+pip install djangorestframework
+```
+
+After installing rest, make it's presence into INSTALLED_APPS:
+```
+'rest_framework'
 ```
 
 ### Resources:
